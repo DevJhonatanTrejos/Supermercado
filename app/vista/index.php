@@ -1,48 +1,60 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+require_once __DIR__ . '/../../config/conexion.php';
+require_once __DIR__ . '/../controlador/productosCtrl.php';
 
-require_once __DIR__ . '/../../config/conexion.php'; 
-require_once __DIR__ . '/../controlador/categoriasCtrl.php';
-
-$controlador = new CategoriasCtrl($conexion); 
-$categorias = $controlador->consultarCategoriasCtrl();
+$ctrl = new ProductosCtrl($conexion);
+$productos = $ctrl->obtenerProductosCtrl();
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supermercado Julio</title>
-     <link rel="stylesheet" href="../../utilidades/css/categorias.css">
+    <link rel="stylesheet" href="../../utilidades/css/index.css">
 </head>
 <body>
-    <h1>Mi Supermercado 🛒</h1>
+    <header class="header">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Supermercado Julio">
+            <h1>Supermercado Julio</h1>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Categorías</a>
+            <a href="#">Ofertas</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
 
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if (!empty($categorias)): ?>
-                <?php foreach ($categorias as $cat): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($cat['id_categoria']) ?></td>
-                        <td><?= htmlspecialchars($cat['nombre']) ?></td>
-                        <td><?= htmlspecialchars($cat['descripcion']) ?></td>
-                    </tr>
+    <section class="banner">
+        <img src="../../utilidades/img/app/banner.jpeg" alt="Banner del supermercado">
+        <div class="texto-banner">
+            <h2>¡Bienvenido a tu supermercado de confianza!</h2>
+            <p>Calidad, frescura y buenos precios todos los días.</p>
+        </div>
+    </section>
+
+    <main class="productos">
+        <h2>🛒 Nuestros Productos</h2>
+        <div class="grid-productos">
+            <?php if (!empty($productos)): ?>
+                <?php foreach ($productos as $p): ?>
+                    <div class="producto">
+                        <img src="../../utilidades/img/productos/<?= htmlspecialchars($p['imagen_url']) ?>" alt="<?= htmlspecialchars($p['nombre']) ?>">
+                        <h3><?= htmlspecialchars($p['nombre']) ?></h3>
+                        <p><?= htmlspecialchars($p['descripcion']) ?></p>
+                        <span class="precio">$<?= number_format($p['precio'], 0, ',', '.') ?></span>
+                    </div>
                 <?php endforeach; ?>
             <?php else: ?>
-                <tr>
-                    <td colspan="3" class="no-datos">No hay categorías registradas</td>
-                </tr>
+                <p class="no-datos">No hay productos disponibles.</p>
             <?php endif; ?>
-        </tbody>
-    </table>
+        </div>
+    </main>
+
+    <footer>
+        <p>© <?= date('Y') ?> Supermercado Julio. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
