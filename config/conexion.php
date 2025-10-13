@@ -2,7 +2,7 @@
 $hostname = "localhost";
 $username = "root";
 $password = "";
-$database = "supermercado_online";
+$database = "supermercado";
 $conexion = new mysqli($hostname,$username,$password,$database);
 
 if ($conexion -> connect_errno){

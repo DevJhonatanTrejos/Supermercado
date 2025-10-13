@@ -10,7 +10,7 @@ Class categoriasMdl{
     
     public function consultarCategorias() {
 
-        $sql = $this->conexion->query ("SELECT * from categoria");
+        $sql = $this->conexion->query ("SELECT * from categorias");
         
         return $sql->fetch_all(MYSQLI_ASSOC);
     }
