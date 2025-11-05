@@ -1,5 +1,5 @@
 <?php
-require_once("../modelo/categoriasMdl.php");
+require_once __DIR__ . '/../modelo/categoriasMdl.php';
 
 class CategoriasCtrl {
 
@@ -10,8 +10,11 @@ class CategoriasCtrl {
     }
 
     public function consultarCategoriasCtrl() {
-        $datos = $this->modelo->consultarCategorias();
-        return $datos;
+        return $this->modelo->consultarCategorias();
+    }
+
+    public function insertarCategoriasCtrl($nombre, $descripcion) {
+        return $this->modelo->insertarCategorias($nombre, $descripcion);
     }
 }
 ?>

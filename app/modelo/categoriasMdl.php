@@ -10,10 +10,21 @@ Class categoriasMdl{
     
     public function consultarCategorias() {
 
-        $sql = $this->conexion->query ("SELECT * from categoria");
+        $sql = $this->conexion->query ("SELECT * from categorias");
         
         return $sql->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function insertarCategorias($nombre, $descripcion) {
+    $stmt = $this->conexion->prepare("
+        INSERT INTO categorias (nombre, descripcion)
+        VALUES (?, ?)
+    ");
+    $stmt->bind_param("ss", $nombre, $descripcion);
+    $resultado = $stmt->execute();
+    $stmt->close();
+    return $resultado;
+}
 
 }
 
