@@ -7,7 +7,7 @@ class ProductosMdl {
     }
 
     public function obtenerProductos() {
-        $sql = "SELECT id_producto, nombre, descripcion, precio, imagen_url FROM productos";
+        $sql = "SELECT id_producto, nombre, descripcion, precio, imagen_url FROM producto";
         $resultado = $this->conexion->query($sql);
 
         if (!$resultado) {

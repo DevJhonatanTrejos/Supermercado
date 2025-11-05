@@ -11,6 +11,7 @@ $categorias = $controlador->consultarCategoriasCtrl();
 
 <!DOCTYPE html>
 <html lang="es">
+     <link rel="stylesheet" href="../../utilidades/css/index.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,6 +24,28 @@ $categorias = $controlador->consultarCategoriasCtrl();
     <link rel="stylesheet" href="../../utilidades/css/categorias.css">
 </head>
 <body class="bg-light">
+    <header class="header">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Supermercado Julio">
+            <h1>Supermercado Julio</h1>
+        </div>
+        <nav>
+  <a href="http://localhost/xampp/Supermercado/app/vista/index.php">Inicio</a>
+  <div style="display: inline-block; background-color: royalblue; padding: 10px;">
+    <a href="#" style="color: white; text-decoration: none;">Categorías</a>
+  </div>
+  <a href="http://localhost/xampp/Supermercado/app/vista/Ofertas.php">Ofertas</a>
+  <a href="#">Contacto</a>
+</nav>
+    </header>
+
+    <section class="banner">
+        <img src="../../utilidades/img/app/banner.jpeg" alt="Banner del supermercado">
+        <div class="texto-banner">
+            <h2>¡Bienvenido a tu supermercado de confianza!</h2>
+            <p>Calidad, frescura y buenos precios todos los días.</p>
+        </div>
+    </section>
     <div class="container mt-4">
         <h1 class="text-center mb-4">Mi Supermercado 🛒</h1>
 

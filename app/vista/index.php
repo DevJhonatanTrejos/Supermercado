@@ -21,8 +21,8 @@ $productos = $ctrl->obtenerProductosCtrl();
         </div>
         <nav>
             <a href="#">Inicio</a>
-            <a href="http://localhost/xampp/supermercado/Supermercado/app/vista/categorias.php">Categorías</a>
-            <a href="http://localhost/xampp/supermercado/Supermercado/app/vista/Ofertas.php">Ofertas</a>
+            <a href="http://localhost/xampp/Supermercado/app/vista/categorias.php">Categorías</a>
+            <a href="http://localhost/xampp/Supermercado/app/vista/Ofertas.php">Ofertas</a>
             <a href="#">Contacto</a>
         </nav>
     </header>
