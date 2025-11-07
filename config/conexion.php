@@ -9,7 +9,7 @@ if ($conexion -> connect_errno){
      echo "Error al conectar a la base de datos ($conexion->connect_errno): " . $conexion->connect_error;
 
 }else {
-    echo "Conectado correctamente a la base de datos: $database";
+   // echo "Conectado correctamente a la base de datos: $database";
 }
 
 ?>

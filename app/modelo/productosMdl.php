@@ -16,5 +16,16 @@ class ProductosMdl {
 
         return $resultado->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function consultarProductosPorCategoriaMdl($id_categoria) {
+        $sql = "SELECT id_producto, nombre, descripcion, precio, imagen_url FROM producto where id_categoria=$id_categoria";
+        $resultado = $this->conexion->query($sql);
+
+        if (!$resultado) {
+            die("Error en la consulta: " . $this->conexion->error);
+        }
+
+        return $resultado->fetch_all(MYSQLI_ASSOC);
+    }
 }
 ?>

@@ -15,6 +15,10 @@ Class categoriasMdl{
         return $sql->fetch_all(MYSQLI_ASSOC);
     }
 
+   public function consultarCategoriasIdMdl($id) {
+    $sql = $this->conexion->query("SELECT * FROM categoria WHERE id_categoria = $id");
+    return $sql->fetch_assoc(); // ✅ Solo un registro (array asociativo)
+}
     public function insertarCategorias($nombre, $descripcion) {
     $stmt = $this->conexion->prepare("
         INSERT INTO categorias (nombre, descripcion)

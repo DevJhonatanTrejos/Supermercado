@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../modelo/categoriasMdl.php';
 
-class CategoriasCtrl {
+class categoriasCtrl {
 
     private $modelo;
 
@@ -11,6 +11,10 @@ class CategoriasCtrl {
 
     public function consultarCategoriasCtrl() {
         return $this->modelo->consultarCategorias();
+    }
+
+    public function consultarCategoriasIdCtrl($id) {
+        return $this->modelo->consultarCategoriasIdMdl($id);
     }
 
     public function insertarCategoriasCtrl($nombre, $descripcion) {
